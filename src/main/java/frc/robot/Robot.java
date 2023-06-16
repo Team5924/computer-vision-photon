@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-  private final PhotonCamera camera = new PhotonCamera("PhotonUSBCamera");
+  
   private RobotContainer m_robotContainer;
 
   /**
@@ -47,9 +47,8 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     
-    var result = camera.getLatestResult();
-    SmartDashboard.putBoolean("hasTarget", result.hasTargets());
-    System.out.println(result.hasTargets());
+
+
     CommandScheduler.getInstance().run();
   }
 

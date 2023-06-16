@@ -3,7 +3,9 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot;
-
+import edu.wpi.first.math.util.Units;
+import org.photonvision.PhotonCamera;
+import org.photonvision.PhotonUtils;
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -15,5 +17,10 @@ package frc.robot;
 public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
+  }
+  public static class CameraConstants {
+    public static final double kCameraHeightMeters = 0.26035;
+    public static final double kTargetHeightMeters = Units.inchesToMeters(18.25);
+    public static final double kCameraPitchRadians = 1.5708;
   }
 }

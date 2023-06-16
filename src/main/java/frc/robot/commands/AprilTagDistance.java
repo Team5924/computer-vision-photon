@@ -4,10 +4,13 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Vision;
 import org.photonvision.PhotonCamera;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.photonvision.PhotonUtils;
+import edu.wpi.first.math.util.Units;
 
 
 
@@ -30,7 +33,11 @@ public class AprilTagDistance extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-  
+
+
+    System.out.println(mVision.hasTargets());
+    SmartDashboard.putBoolean("hasTarget", mVision.hasTargets());
+    SmartDashboard.putNumber("range", mVision.distance());
   }
 
   // Called once the command ends or is interrupted.

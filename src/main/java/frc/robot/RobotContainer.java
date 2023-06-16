@@ -7,6 +7,7 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.AprilTagDistance;
 import frc.robot.subsystems.Vision;
+import edu.wpi.first.wpilibj.event.EventLoop;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -26,11 +27,14 @@ public class RobotContainer {
 
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
+
+    Trigger xButton = m_driverController.x(); 
   
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
 
+    mVision.setDefaultCommand(new AprilTagDistance(mVision, mVision));
     // Configure the trigger bindings
     configureBindings();
   }
